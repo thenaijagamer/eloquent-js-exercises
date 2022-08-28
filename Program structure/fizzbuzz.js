@@ -5,6 +5,7 @@
   (and still print "Fizz" or "Buzz" for numbers divisible by only 
   one of those).*/
 
+//Normal solution
 for (let num = 1; num <= 100; num++) {
   if (num % 5 === 0 && num % 3 === 0) {
     console.log("FizzBuzz");
@@ -15,4 +16,11 @@ for (let num = 1; num <= 100; num++) {
   } else {
     console.log(num);
   }
+}
+
+//Clever and shortest solution
+for (let num = 1; num <= 100; num++) {
+  console.log(
+    `${num % 3 == 0 ? "Fizz" : ""}` + `${num % 5 == 0 ? "Buzz" : ""}` || num
+  );
 }
