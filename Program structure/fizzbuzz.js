@@ -18,7 +18,7 @@ for (let num = 1; num <= 100; num++) {
   }
 }
 
-//Clever and shortest solution
+//Cleverest and shortest solution
 for (let num = 1; num <= 100; num++) {
   console.log(
     `${num % 3 == 0 ? "Fizz" : ""}` + `${num % 5 == 0 ? "Buzz" : ""}` || num
