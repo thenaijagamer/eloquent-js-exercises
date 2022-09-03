@@ -1,19 +1,15 @@
 function reverseArray(array) {
   let newArray = [];
-  let counter = 1;
-  for (let i = 0; i < array["length"]; i++) {
+  for (let i = 0, counter = 1; i < array["length"]; i++, counter++) {
     newArray.push(array[array["length"] - counter]);
-    counter++;
   }
   return newArray;
 }
 
 function reverseArrayInPlace(array) {
   let newArray = [];
-  let counter = 1;
-  for (let i = 0; i < array["length"]; i++) {
+  for (let i = 0, counter = 1; i < array["length"]; i++, counter++) {
     newArray.push(array[array["length"] - counter]);
-    counter++;
   }
   return newArray;
 }
