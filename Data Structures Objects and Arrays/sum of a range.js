@@ -1,16 +1,10 @@
 function range(start, end, step) {
   const numbers = [];
-
   if (start > end) {
-    for (let i = start; i >= end; i += step) {
-      numbers.push(i);
-    }
+    for (let i = start; i >= end; i += step) numbers.push(i);
   } else {
-    for (let i = start; i <= end; i += step) {
-      numbers.push(i);
-    }
+    for (let i = start; i <= end; i += step) numbers.push(i);
   }
-
   return numbers;
 }
 // console.log(range(5, 2, -1));
