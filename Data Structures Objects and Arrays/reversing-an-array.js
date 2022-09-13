@@ -1,22 +1,22 @@
 function reverseArray(array) {
   let newArray = [];
-  for (let i = 0, counter = 1; i < array["length"]; i++, counter++) {
-    newArray.push(array[array["length"] - counter]);
+  for (let i = array["length"] - 1; i >= 0; i--) {
+    newArray.push(array[i]);
   }
   return newArray;
 }
 
-let newArray = [1, 2, 3, 4, 5, "b", "c", 4];
+let array = [1, 2, 3, 4, 5, "b", "c", 4];
 function reverseArrayInPlace() {
-  let newArrayI = [];
-  for (let i = 0, counter = 1; i < newArray["length"]; i++, counter++) {
-    newArrayI.push(newArray[newArray["length"] - counter]);
+  let newArray = [];
+  for (let i = array["length"] - 1; i >= 0; i--) {
+    newArray.push(array[i]);
   }
-  newArray = newArrayI;
+  array = newArray;
 }
 console.log(reverseArray(["a", "b", "c"]));
-// -> [ 5, 4, 3, 2, 1 ]
+// -> ["c", "b", "a"]
 
 reverseArrayInPlace();
-console.log(newArray);
-// -> [ 5, 4, 3, 2, 1 ]
+console.log(array);
+// -> [4, "c", "b", 5, 4, 3, 2, 1];

@@ -1,13 +1,12 @@
 function arrayToList(arr) {
   let list = null;
-  for (let i = 0, counter = 1; i < arr.length; i++) {
-    list = { value: arr[arr.length - counter], rest: list };
-    counter++;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    list = { value: arr[i], rest: list };
   }
   return list;
 }
 
-// console.log(listToArray(arrayToList([1, 2, 3, 4, 5, 5])));
+// console.log(listToArray(arrayToList([1, 2, 3, 4, 5])));
 
 function listToArray(list) {
   let arr = [];
@@ -21,7 +20,7 @@ function prepend(element, list) {
   list = { value: element, rest: list };
   return list;
 }
-// console.log(prepend(5, arrayToList([3, 4])));
+console.log(prepend(20, prepend(10, prepend(20, null))));
 
 function nth(list, num) {
   let element;
@@ -34,18 +33,5 @@ function nth(list, num) {
   }
   return element;
 }
-console.log(nthRecursion(arrayToList([1, 2]), 1));
 
 // Recursive solution for nth function
-function nthRecursion(list, num) {
-  let element;
-  let arr = listToArray(list);
-  if (num >= 0 && num < arr["length"]) {
-    element = arr[num];
-    return element;
-  } else if (num >= arr.length) {
-    return element;
-  } else {
-    return nthRecursion(list, num + 1);
-  }
-}
