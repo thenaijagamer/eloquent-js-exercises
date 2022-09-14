@@ -1,4 +1,4 @@
-// function to compare two objects
+// value comparism fucntion that can also compare objects
 
 function deepEqual(val1, val2) {
   if (val1 === val2) {
