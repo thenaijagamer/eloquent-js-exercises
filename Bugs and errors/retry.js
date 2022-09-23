@@ -9,19 +9,17 @@ function primitiveMultiply(a, b) {
 }
 
 function reliableMultiply(a, b) {
-  // for (;;) {
-  //   try {
-  //     let product = primitiveMultiply(a, b);
-  //     console.log("Falls to 20% case and answer is " + product);
-  //     break;
-  //   } catch (e) {
-  //     if (e instanceof MultiplicatorUnitFailure) {
-  //       console.log("Falls to 80% case Try again.");
-  //     } else {
-  //       throw e;
-  //     }
-  //   }
-  // }
+  for (;;) {
+    try {
+      return primitiveMultiply(a, b);
+    } catch (e) {
+      if (e instanceof MultiplicatorUnitFailure) {
+        ("");
+      } else {
+        throw e;
+      }
+    }
+  }
 }
 
 console.log(reliableMultiply(8, 8));
