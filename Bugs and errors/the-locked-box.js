@@ -13,23 +13,56 @@ const box = {
   },
 };
 
+// My solution
+
 function withBoxUnlocked(arr) {
-  let progress = 0;
+  if (!box.locked) {
+    return arr(box.content);
+  }
+  box.unlock();
   try {
-    let content = box.content;
-    progress = 1;
-    arr(content);
-    box.unlock();
+    if (!box.locked) {
+      return arr(box.content);
+    }
   } catch (error) {
     console.log(error);
   } finally {
-    if (progress == 1) {
-      box.lock();
-    }
+    box.lock();
   }
 }
+
 let func = (e) => {
   e.push(Math.floor(Math.random() * 10));
 };
 withBoxUnlocked(func);
 console.log(box);
+
+// Copied solution
+// function withBoxUnlocked(body) {
+//   let locked = box.locked;
+//   if (!locked) {
+//     return body();
+//   }
+
+//   box.unlock();
+//   try {
+//     return body();
+//   } finally {
+//     box.lock();
+//   }
+// }
+
+// withBoxUnlocked(function() {
+//   box.content.push("gold piece");
+// });
+
+// try {
+//   withBoxUnlocked(function() {
+//     throw new Error("Pirates on the horizon! Abort!");
+//   });
+// } catch (e) {
+//   console.log("Error raised:", e);
+// }
+
+// console.log(box.locked);
+// // → true
