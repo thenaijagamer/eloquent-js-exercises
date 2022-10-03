@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Mountains</h1>
+
+    <div id="mountains"></div>
+
+    <script>
+      const MOUNTAINS = [
+        { name: "Kilimanjaro", height: 5895, place: "Tanzania" },
+        { name: "Everest", height: 8848, place: "Nepal" },
+        { name: "Mount Fuji", height: 3776, place: "Japan" },
+        { name: "Vaalserberg", height: 323, place: "Netherlands" },
+        { name: "Denali", height: 6168, place: "United States" },
+        { name: "Popocatepetl", height: 5465, place: "Mexico" },
+        { name: "Mont Blanc", height: 4808, place: "Italy/France" },
+      ];
+      // Your code here
+      let mountains = document.getElementById("mountains");
+      let table = document.createElement("table");
+      mountains.appendChild(table);
+      function createTable() {
+        let keys = Object.keys(MOUNTAINS[0]);
+        let row = document.createElement("tr");
+        table.appendChild(row);
+
+        for (const key of keys) {
+          let header = document.createElement("th");
+          row.appendChild(header);
+          header.appendChild(document.createTextNode(key));
+        }
+
+        for (const el of MOUNTAINS) {
+          let row = document.createElement("tr");
+          table.appendChild(row);
+          let props = Object.values(el);
+          for (const value of props) {
+            let data = document.createElement("td");
+            row.appendChild(data);
+            data.appendChild(document.createTextNode(value));
+            if (/\d+/.test(data.textContent)) {
+              data.style.textAlign = "right";
+            }
+          }
+        }
+      }
+      createTable();
+    </script>
+  </body>
+</html>
