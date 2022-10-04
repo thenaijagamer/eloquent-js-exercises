@@ -9,18 +9,32 @@
   <body>
     <h1>Heading with a <span>span</span> element.</h1>
     <p>A paragraph with <span>one</span>, <span>two</span> spans.</p>
-
     <script>
+      let kids = [];
       function byTagName(node, tagName) {
-        // Your code here.
+        if (node.children.length) {
+          node.childNodes.forEach((element) => {
+            // console.log(element.children);
+            // if (element.nodeName == tagName.toUpperCase()) {
+            // kids.push(element);
+            element.childNodes.forEach((ele) => {
+              console.log(ele.children);
+              // if (element.chil.length > 0 && el) {
+              //   byTagName(element, tagName);
+              // }
+            });
+            // }
+          });
+        }
+        return kids;
       }
 
-      console.log(byTagName(document.body, "h1").length);
-      // → 1
+      // console.log(byTagName(document.body, "h1").length);
+      // // → 1
       console.log(byTagName(document.body, "span").length);
       // → 3
       let para = document.querySelector("p");
-      console.log(byTagName(para, "span").length);
+      // console.log(byTagName(para, "span").length);
       // → 2
     </script>
   </body>
